@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import hpp from 'hpp';
@@ -30,12 +29,12 @@ app.use(limiter)
 app.set('etag', WEB_CACHE)
 
 // MongoDB connection
-mongoose.connect(MONGODB_CONNECTION, { autoIndex: true })
-    .then(() => {
-        console.log("Database Connected")
-    }).catch((err) => {
-        console.log("Database Error", err)
-    })
+// mongoose.connect(MONGODB_CONNECTION, { autoIndex: true })
+//     .then(() => {
+//         console.log("Database Connected")
+//     }).catch((err) => {
+//         console.log("Database Error", err)
+//     })
 
 // Add App Router
 app.use("/api", router)
